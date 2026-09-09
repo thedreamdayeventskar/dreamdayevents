@@ -1,210 +1,116 @@
+const services = [
+  {
+    title: "Wedding Planning",
+    description:
+      "From intimate ceremonies to grand celebrations, we design and execute weddings that reflect your unique story and traditions.",
+    image: "/images/services/wedding.jpg",
+  },
+  {
+    title: "Naming Ceremony",
+    description:
+      "Thoughtfully curated naming ceremonies that honour family traditions while creating memorable moments for your loved ones.",
+    image: "/images/services/naming-ceremony.jpg",
+  },
+  {
+    title: "Corporate Event",
+    description:
+      "Professional event management for conferences, product launches, team outings, and corporate gatherings across Karnataka.",
+    image: "/images/services/corporate-event.jpg",
+  },
+  {
+    title: "Decoration & Styling",
+    description:
+      "End-to-end decor solutions including floral arrangements, lighting, stage design, and thematic styling for any celebration.",
+    image: "/images/services/decoration-styling.jpg",
+  },
+  {
+    title: "Catering Coordination",
+    description:
+      "Seamless coordination with trusted caterers to ensure exceptional food experiences that complement your event vision.",
+    image: "/images/services/catering-coordination.jpg",
+  },
+  {
+    title: "Photography",
+    description:
+      "Professional photography services to capture every precious moment, from candid shots to formal portraits.",
+    image: "/images/services/photography.jpg",
+  },
+];
+
+function ArrowIcon() {
+  return (
+    <svg
+      className="w-4 h-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
+
 export default function Features() {
   return (
-    <section id="features" className="py-12">
-      <div className="max-w-xl px-4 py-12 mx-auto sm:px-6 lg:max-w-6xl lg:px-8">
-        <h1 className="mb-8 text-2xl font-bold tracking-normal text-center text-gray-800 md:leading-tight md:tracking-normal dark:text-gray-200 md:text-4xl">
-          Supporting the{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r dark:bg-gradient-to-r from-rose-500 via-fuchsia-500 to-indigo-500 dark:from-rose-400 dark:via-fuchsia-400 dark:to-indigo-400">
-            finest
-          </span>{" "}
-          and{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r dark:bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-rose-500 dark:from-indigo-400 dark:via-fuchsia-400 dark:to-rose-400">
-            richest
-          </span>{" "}
-          features.
-        </h1>
-        <p className="max-w-md mx-auto mb-10 text-lg text-gray-600 dark:text-gray-400 md:text-lg">
-          We&apos;re introducing a new wave of template designs that sky-rocket
-          the interaction between users and <b>your</b> app.
-        </p>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="mb-10 space-y-6">
-            <h1 className="text-xl font-bold text-center text-rose-600 dark:text-rose-300 md:text-2xl sm:text-left">
-              Next.js 11
-            </h1>
-            <div className="h-auto">
-              <a
-                href="https://unsplash.com/photos/ymVslcVAzg8"
-                rel="noreferrer"
-                target="_blank"
-              >
+    <section id="features" className="relative py-16 bg-white dark:bg-gray-950 sm:py-24">
+      <div className="absolute left-0 top-0 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-100/70 blur-3xl dark:bg-gold-500/5" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 translate-y-1/3 rounded-full bg-navy-100/60 blur-3xl dark:bg-navy-900/30" />
+
+      <div className="relative max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-semibold tracking-[0.22em] uppercase text-gold-600 dark:text-gold-400">
+            What we do
+          </p>
+
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
+            Services Crafted for Unforgettable Celebrations.
+          </h2>
+
+          <p className="max-w-2xl mx-auto mt-5 text-base leading-8 text-gray-600 dark:text-gray-300">
+            Every celebration is unique. Our team works closely with you to
+            understand your vision and bring it to life with precision and care.
+          </p>
+        </div>
+
+        <div className="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="group overflow-hidden rounded-2xl border border-gold-200 bg-white shadow-sm transition duration-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900"
+            >
+              <div className="relative overflow-hidden h-48">
                 <img
-                  className="transition duration-700 rounded shadow-2xl h-80 hover:shadow-3xl md:hover:transform md:hover:scale-105"
-                  src="/images/placeholder-2.webp"
-                  alt="Placeholder for Next.js"
+                  src={service.image}
+                  alt={service.title}
+                  className="object-cover w-full h-full transition duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
-              </a>
-            </div>
-            <p className="mx-2 font-normal text-gray-500 dark:text-gray-400 text-md">
-              <ul className="mr-0 md:mr-10">
-                <li className="mb-2">
-                  <span className="font-semibold">Conformance</span>: A system
-                  that provides carefully crafted solutions to support optimal
-                  UX.
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">Improved Performance</span>:
-                  Further optimizations to improve cold startup time so you can
-                  start coding faster.
-                </li>
-                <li className="mb-2">
-                  <span className="text-purple-500 dark:text-purple-400 px-1 py-0.75 border border-gray-200 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900">
-                    `next/script`
-                  </span>{" "}
-                  updates
-                </li>
-                <li className="mb-2">
-                  <span className="text-purple-500 dark:text-purple-400 px-1 py-0.75 border border-gray-200 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900">
-                    `next/image`
-                  </span>{" "}
-                  updates
-                </li>
-              </ul>
-            </p>
-          </div>
-          <div className="mb-10 space-y-6">
-            <h1 className="text-xl font-bold text-center text-rose-600 dark:text-rose-300 md:text-2xl sm:text-left">
-              TailwindCSS JIT
-            </h1>
-            <div className="h-auto">
-              <a
-                href="https://unsplash.com/photos/qOEiV-8w-MQ"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <img
-                  className="transition duration-700 rounded shadow-2xl h-80 hover:shadow-3xl md:hover:transform md:hover:scale-105"
-                  src="/images/placeholder-3.webp"
-                  alt="Placeholder for TailwindCSS JIT"
-                />
-              </a>
-            </div>
-            <p className="mx-2 font-normal text-gray-500 dark:text-gray-400 text-md">
-              <ul className="mr-0 md:mr-10">
-                <li className="mb-2">
-                  <span className="font-semibold">Just-in-Time Mode</span>: A
-                  faster, more powerful, on-demand engine for Tailwind CSS
-                  v2.1+.
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">
-                    Lightning fast build times
+                <div className="absolute inset-0 transition duration-300 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100" />
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-navy-900 group-hover:text-gold-700 dark:text-white dark:group-hover:text-gold-300">
+                  {service.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                  {service.description}
+                </p>
+
+                <div className="flex items-center gap-2 mt-5 text-xs font-semibold tracking-wide uppercase text-gold-600 dark:text-gold-400">
+                  Learn more
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    <ArrowIcon />
                   </span>
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">
-                    Identical CSS in development and production
-                  </span>
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">
-                    Better browser performance in development
-                  </span>
-                </li>
-                <li className="mb-2">
-                  <span className="text-purple-500 dark:text-purple-400 px-1 py-0.75 border border-gray-200 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900">
-                    `mode: &apos;jit&apos;`
-                  </span>
-                </li>
-              </ul>
-            </p>
-          </div>
-          <div className="mb-10 space-y-6">
-            <h1 className="text-xl font-bold text-center text-rose-600 dark:text-rose-300 md:text-2xl sm:text-left">
-              Dark Mode
-            </h1>
-            <div className="h-auto">
-              <a
-                href="https://unsplash.com/photos/p7o0qrl8hv8"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <img
-                  className="transition duration-700 rounded shadow-2xl h-80 hover:shadow-3xl md:hover:transform md:hover:scale-105"
-                  src="/images/placeholder-4.webp"
-                  alt="Placeholder for Dark Mode"
-                />
-              </a>
+                </div>
+              </div>
             </div>
-            <p className="mx-2 font-normal text-gray-500 dark:text-gray-400 text-md">
-              <ul className="mr-0 md:mr-10">
-                <li className="mb-2">
-                  <a
-                    href="https://github.com/pacocoursey/next-themes"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-semibold"
-                  >
-                    next-themes
-                  </a>
-                  : An abstraction for themes in your Next.js app.
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">System settings</span>: Uses
-                  system settings to activate dark mode/light mode.
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">No flash</span>: No flash on
-                  switching themes or load in both SSG and SSR.
-                </li>
-                <li className="mb-2">
-                  <span className="text-purple-500 dark:text-purple-400 px-1 py-0.75 border border-gray-200 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900">
-                    `useTheme`
-                  </span>{" "}
-                  hook
-                </li>
-              </ul>
-            </p>
-          </div>
-          <div className="mb-10 space-y-6">
-            <h1 className="text-xl font-bold text-center text-rose-600 dark:text-rose-300 md:text-2xl sm:text-left">
-              Next-SEO
-            </h1>
-            <div className="h-auto">
-              <a
-                href="https://unsplash.com/photos/_CrD1UmfWqc"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <img
-                  className="transition duration-700 rounded shadow-2xl h-80 hover:shadow-3xl md:hover:transform md:hover:scale-105"
-                  src="/images/placeholder-5.webp"
-                  alt="Placeholder for Next-SEO"
-                />
-              </a>
-            </div>
-            <p className="mx-2 font-normal text-gray-500 dark:text-gray-400 text-md">
-              <ul className="mr-0 md:mr-10">
-                <li className="mb-2">
-                  <a
-                    href="https://github.com/garmeeh/next-seo"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-semibold"
-                  >
-                    next-seo
-                  </a>
-                  : A plugin that makes managing your SEO easier in Next.js
-                  projects.
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">Renders to head</span>: All
-                  props passed into{" "}
-                  <span className="text-purple-500 dark:text-purple-400 px-1 py-0.75 border border-gray-200 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900">
-                    `next-seo`
-                  </span>{" "}
-                  will render tags into the{" "}
-                  <span className="text-purple-500 dark:text-purple-400 px-1 py-0.75 border border-gray-200 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900">
-                    {"`<head>`"}
-                  </span>{" "}
-                </li>
-                <li className="mb-2">
-                  <span className="font-semibold">Bare minimum</span>: Next-SEO
-                  should at least have access to a description & a title.
-                </li>
-              </ul>
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

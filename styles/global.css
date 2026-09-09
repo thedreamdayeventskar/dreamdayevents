@@ -18,7 +18,7 @@ html {
   z-index: 50;
   top: 0;
   backdrop-filter: saturate(180%) blur(20px) !important;
-  transition: background-color 0.1 ease-in-out !important;
+  transition: background-color 0.1s ease-in-out !important;
 }
 
 body::-webkit-scrollbar {
@@ -26,11 +26,37 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: rgb(39, 39, 39);
-  outline: 1px solid rgb(33, 34, 34);
+  background-color: #123050;
+  outline: 1px solid #071d36;
+  border-radius: 9999px;
 }
 
 ::selection {
-  background-color: #f81ce5;
-  color: #fefefe;
+  background-color: #c89b3c;
+  color: #071d36;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

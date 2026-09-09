@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://thedreamdayevents.com/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/dreamday-events-logo.png</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/hero-bg-1.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/hero-bg-2.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/hero-bg-3.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/about.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/services/wedding.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/services/naming-ceremony.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/services/corporate-event.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/services/decoration-styling.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/services/catering-coordination.jpg</image:loc>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://thedreamdayevents.com/images/services/photography.jpg</image:loc>
+    </image:image>
+  </url>
+</urlset>

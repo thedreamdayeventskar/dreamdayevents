@@ -1,0 +1,6 @@
+# Replace "thedreamdayevents.com" with your final domain before going live.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://thedreamdayevents.com/sitemap.xml
