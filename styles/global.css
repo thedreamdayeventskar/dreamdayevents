@@ -60,3 +60,22 @@ body::-webkit-scrollbar-thumb {
     transition-duration: 0.01ms !important;
   }
 }
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
