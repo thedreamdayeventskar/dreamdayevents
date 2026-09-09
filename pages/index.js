@@ -15,47 +15,87 @@ const WHATSAPP_URL = "https://wa.me/919113046593";
 
 const heroSlides = [
   {
-    src: "/images/placeholder.webp",
-    alt: "Dreamday Events celebration setup",
+    src: "/images/celebrations-1.jpg",
+    alt: "Beautifully planned wedding celebration by The Dreamday Events",
     label: "Beautifully planned celebrations",
   },
   {
-    src: "/images/placeholder-2.webp",
-    alt: "Dreamday Events wedding decor",
+    src: "/images/celebrations-2.jpg",
+    alt: "Elegant wedding decor by The Dreamday Events",
     label: "Moments made unforgettable",
   },
   {
-    src: "/images/placeholder-3.webp",
-    alt: "Dreamday Events event arrangement",
-    label: "Designed with every detail in mind",
+    src: "/images/wedding-0043.jpg",
+    alt: "Traditional wedding ceremony captured by The Dreamday Events",
+    label: "Celebrations filled with tradition",
+  },
+  {
+    src: "/images/prewedding-86-2.jpg",
+    alt: "Pre-wedding couple photography by The Dreamday Events",
+    label: "Stories that begin before the big day",
   },
 ];
 
 const gallerySlides = [
   {
-    src: "/images/placeholder-2.webp",
-    alt: "Wedding event decor by The Dreamday Events",
-    title: "Weddings",
+    src: "/images/IMG-20260909-WA0041.jpg",
+    alt: "Wedding ritual captured by The Dreamday Events",
+    title: "Meaningful Moments",
   },
   {
-    src: "/images/placeholder-3.webp",
-    alt: "Naming ceremony by The Dreamday Events",
-    title: "Naming Ceremonies",
+    src: "/images/IMG-20260909-WA0047.jpg",
+    alt: "Bride and groom during their wedding ceremony",
+    title: "Wedding Celebrations",
   },
   {
-    src: "/images/placeholder-4.webp",
-    alt: "Corporate event by The Dreamday Events",
-    title: "Corporate Events",
+    src: "/images/IMG-20260909-WA0052.jpg",
+    alt: "Traditional wedding ceremony by The Dreamday Events",
+    title: "Timeless Traditions",
   },
   {
-    src: "/images/placeholder-5.webp",
-    alt: "Event decoration by The Dreamday Events",
+    src: "/images/IMG-20260909-WA0054.jpg",
+    alt: "Bride during a traditional wedding ritual",
+    title: "Details That Matter",
+  },
+  {
+    src: "/images/IMG-20260909-WA0075.jpg",
+    alt: "Floral wedding entrance decoration",
+    title: "Beautiful Entrances",
+  },
+  {
+    src: "/images/IMG-20260909-WA0076.jpg",
+    alt: "Decorated wedding mandap and ceremony space",
+    title: "Mandap & Stage Design",
+  },
+  {
+    src: "/images/IMG-20260909-WA0082.jpg",
+    alt: "Pre-wedding couple portrait in nature",
+    title: "Pre-Wedding Stories",
+  },
+  {
+    src: "/images/IMG-20260909-WA0083.jpg",
+    alt: "Traditional couple portrait",
+    title: "Couple Stories",
+  },
+  {
+    src: "/images/IMG-20260909-WA0084.jpg",
+    alt: "Pre-wedding couple photography on a bridge",
+    title: "Pre-Wedding Photography",
+  },
+  {
+    src: "/images/IMG-20260909-WA0021.jpg",
+    alt: "Bridal portrait with traditional jewellery",
+    title: "Bridal Portraits",
+  },
+  {
+    src: "/images/IMG-20260909-WA0026.jpg",
+    alt: "Elegant floral stage decoration",
     title: "Decoration & Styling",
   },
   {
-    src: "/images/placeholder.webp",
-    alt: "Event photography by The Dreamday Events",
-    title: "Photography",
+    src: "/images/IMG-20260909-WA0065.jpg",
+    alt: "Buffet catering setup arranged by The Dreamday Events",
+    title: "Catering & Presentation",
   },
 ];
 
