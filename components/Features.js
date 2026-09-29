@@ -3,37 +3,37 @@ const services = [
     title: "Wedding Planning",
     description:
       "From intimate ceremonies to grand celebrations, we design and execute weddings that reflect your unique story and traditions.",
-    image: "/images/services/wedding.jpg",
+    image: "/images/wedding.jpg",
   },
   {
     title: "Naming Ceremony",
     description:
       "Thoughtfully curated naming ceremonies that honour family traditions while creating memorable moments for your loved ones.",
-    image: "/images/services/naming-ceremony.jpg",
+    image: "/images/naming_ceremony.jpg",
   },
   {
     title: "Corporate Event",
     description:
       "Professional event management for conferences, product launches, team outings, and corporate gatherings across Karnataka.",
-    image: "/images/services/corporate-event.jpg",
+    image: "/images/Corporate_event.jpg",
   },
   {
     title: "Decoration & Styling",
     description:
       "End-to-end decor solutions including floral arrangements, lighting, stage design, and thematic styling for any celebration.",
-    image: "/images/services/decoration-styling.jpg",
+    image: "/images/Decoration_Styling.jpg",
   },
   {
     title: "Catering Coordination",
     description:
       "Seamless coordination with trusted caterers to ensure exceptional food experiences that complement your event vision.",
-    image: "/images/services/catering-coordination.jpg",
+    image: "/images/Catering_Coordination.jpg",
   },
   {
     title: "Photography",
     description:
       "Professional photography services to capture every precious moment, from candid shots to formal portraits.",
-    image: "/images/services/photography.jpg",
+    image: "/images/Photography.jpg",
   },
 ];
 

@@ -1,9 +1,35 @@
+import Image from "next/image";
+
 const WHATSAPP_URL = "https://wa.me/919113046593";
+
+const testimonials = [
+  {
+    name: "Ranjith",
+    event: "Dreamday Events client",
+    image: "/images/testimonials/ranjith.jpg",
+    review:
+      "The Dreamday Events team was organised, supportive, and attentive to the details that mattered to us. They helped our celebration run smoothly and created a warm experience for our family and guests.",
+  },
+  {
+    name: "Anusha",
+    event: "Dreamday Events client",
+    image: "/images/testimonials/anusha.jpg",
+    review:
+      "From planning to execution, the Dreamday Events team made the process feel easy and well coordinated. The décor and arrangements came together beautifully, and we could enjoy the occasion without stress.",
+  },
+  {
+    name: "Keerthana",
+    event: "Dreamday Events client",
+    image: "/images/testimonials/keerthana.jpg",
+    review:
+      "The team understood our requirements and handled the event with care and professionalism. Their coordination, creativity, and friendly support helped make our special day memorable.",
+  },
+];
 
 function QuoteIcon() {
   return (
     <svg
-      className="w-10 h-10 text-gold-400"
+      className="h-10 w-10 text-gold-400"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"
@@ -13,28 +39,10 @@ function QuoteIcon() {
   );
 }
 
-function SparkleIcon() {
-  return (
-    <svg
-      className="w-5 h-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m12 3 1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3Z" />
-      <path d="m19 15 .7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15Z" />
-    </svg>
-  );
-}
-
 function ArrowIcon() {
   return (
     <svg
-      className="w-4 h-4"
+      className="h-4 w-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -51,17 +59,20 @@ function ArrowIcon() {
 
 export default function Testimonials() {
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-16 sm:py-24">
+    <section
+      id="testimonials"
+      className="relative overflow-hidden bg-navy-950 py-16 sm:py-24"
+    >
       <div className="absolute left-0 top-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-400/10 blur-3xl" />
       <div className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 translate-y-1/3 rounded-full bg-gold-400/10 blur-3xl" />
 
-      <div className="relative max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-500/10 text-gold-300">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gold-500/10 text-gold-300">
             <QuoteIcon />
           </div>
 
-          <p className="mt-5 text-xs font-semibold tracking-[0.22em] uppercase text-gold-300">
+          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-gold-300">
             Client stories
           </p>
 
@@ -69,51 +80,54 @@ export default function Testimonials() {
             Celebrations Remembered for the Right Reasons.
           </h2>
 
-          <p className="max-w-2xl mx-auto mt-5 text-base leading-8 text-gray-300">
-            Every event carries a personal story. We are collecting genuine
-            experiences from Dreamday families and clients to share here soon.
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-300">
+            Thoughtful planning, beautiful details, and seamless execution for
+            celebrations that feel personal from start to finish.
           </p>
         </div>
 
-        <div className="grid gap-5 mt-12 md:grid-cols-3">
-          {[1, 2, 3].map((item) => (
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
             <article
-              key={item}
-              className="relative min-h-[245px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm"
+              key={testimonial.name}
+              className="relative flex min-h-[350px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm"
             >
               <span className="absolute right-5 top-3 text-7xl font-bold leading-none text-gold-400/10">
-                0{item}
+                0{index + 1}
               </span>
 
-              <div className="relative">
-                <div className="flex items-center text-gold-300">
-                  <SparkleIcon />
-                  <SparkleIcon />
-                  <SparkleIcon />
-                  <SparkleIcon />
-                  <SparkleIcon />
+              <blockquote className="relative flex-1">
+                <p className="text-base leading-7 text-gray-200">
+                  &ldquo;{testimonial.review}&rdquo;
+                </p>
+              </blockquote>
+
+              <div className="relative mt-8 flex items-center gap-3 border-t border-white/10 pt-5">
+                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-gold-400/40 bg-gold-500/10">
+                  <Image
+                    src={testimonial.image}
+                    alt={`${testimonial.name}, Dreamday Events client`}
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                  />
                 </div>
 
-                <div className="mt-7 h-3 w-4/5 rounded-full bg-white/10" />
-                <div className="mt-3 h-3 w-full rounded-full bg-white/[0.07]" />
-                <div className="mt-3 h-3 w-3/5 rounded-full bg-white/[0.07]" />
+                <div>
+                  <p className="text-sm font-bold text-white">
+                    {testimonial.name}
+                  </p>
 
-                <div className="flex items-center gap-3 mt-8">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold-400/30 bg-gold-500/10 text-xs font-bold text-gold-300">
-                    TD
-                  </div>
-
-                  <div>
-                    <div className="h-3 w-28 rounded-full bg-white/15" />
-                    <div className="mt-2 h-2.5 w-20 rounded-full bg-white/[0.08]" />
-                  </div>
+                  <p className="mt-0.5 text-xs text-gray-400">
+                    {testimonial.event}
+                  </p>
                 </div>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-5 mt-10 rounded-2xl border border-gold-400/20 bg-gold-500/5 px-6 py-6 text-center sm:flex-row sm:px-8 sm:text-left">
+        <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-2xl border border-gold-400/20 bg-gold-500/5 px-6 py-6 text-center sm:flex-row sm:px-8 sm:text-left">
           <div>
             <p className="text-base font-bold text-white">
               Planning a celebration of your own?
