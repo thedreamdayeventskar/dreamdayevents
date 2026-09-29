@@ -9,7 +9,7 @@ const services = [
     title: "Naming Ceremony",
     description:
       "Thoughtfully curated naming ceremonies that honour family traditions while creating memorable moments for your loved ones.",
-    image: "/images/naming_ceremony.jpg",
+    image: "/images/Naming_Ceremony.jpg",
   },
   {
     title: "Corporate Event",
