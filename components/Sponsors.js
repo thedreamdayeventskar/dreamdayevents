@@ -1,9 +1,38 @@
+import { useEffect, useRef, useState } from "react";
+
 const WHATSAPP_URL = "https://wa.me/919113046593";
+
+const steps = [
+  {
+    number: "01",
+    title: "Share Your Vision",
+    description:
+      "Tell us about your occasion, style, guest list, venue, and the moments that matter most to you.",
+  },
+  {
+    number: "02",
+    title: "Plan & Curate",
+    description:
+      "We shape the flow, décor direction, vendors, and details into a celebration designed around you.",
+  },
+  {
+    number: "03",
+    title: "Coordinate Every Detail",
+    description:
+      "Our team manages the moving parts, follows up with partners, and keeps every element on track.",
+  },
+  {
+    number: "04",
+    title: "Celebrate Without Stress",
+    description:
+      "On the day, you stay present with your loved ones while we focus on smooth, thoughtful execution.",
+  },
+];
 
 function ArrowIcon() {
   return (
     <svg
-      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+      className="h-4 w-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -18,230 +47,232 @@ function ArrowIcon() {
   );
 }
 
-function WeddingIcon() {
+function SparkleIcon() {
   return (
     <svg
-      className="w-8 h-8"
+      className="h-5 w-5"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.7"
+      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <circle cx="8" cy="13" r="4.5" />
-      <circle cx="16" cy="13" r="4.5" />
-      <path d="M5.5 9.3 8 3l2.5 6.3" />
-      <path d="M13.5 9.3 16 3l2.5 6.3" />
+      <path d="m12 3 1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3Z" />
+      <path d="m19 15 .7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15Z" />
     </svg>
   );
 }
-
-function NamingCeremonyIcon() {
-  return (
-    <svg
-      className="w-8 h-8"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M4 18c1.8-4.1 4.5-6.1 8-6.1s6.2 2 8 6.1" />
-      <circle cx="12" cy="7" r="3" />
-      <path d="M3 21h18" />
-      <path d="M8.5 4.5 7.3 3.3" />
-      <path d="m15.5 4.5 1.2-1.2" />
-    </svg>
-  );
-}
-
-function CorporateIcon() {
-  return (
-    <svg
-      className="w-8 h-8"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="3" y="7" width="18" height="13" rx="2" />
-      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-      <path d="M3 12h18" />
-      <path d="M10 12v2h4v-2" />
-    </svg>
-  );
-}
-
-function DecorIcon() {
-  return (
-    <svg
-      className="w-8 h-8"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M12 21V8" />
-      <path d="M12 12c-4.5 0-7.5-2.5-8-7 4.5 0 7.5 2.5 8 7Z" />
-      <path d="M12 16c4.5 0 7.5-2.5 8-7-4.5 0-7.5 2.5-8 7Z" />
-      <path d="M7 21h10" />
-    </svg>
-  );
-}
-
-function CateringIcon() {
-  return (
-    <svg
-      className="w-8 h-8"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M3 17h18" />
-      <path d="M5 17a7 7 0 0 1 14 0" />
-      <path d="M12 5v2" />
-      <path d="M9 5h6" />
-      <path d="M4 20h16" />
-    </svg>
-  );
-}
-
-function PhotographyIcon() {
-  return (
-    <svg
-      className="w-8 h-8"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M4 7h4l1.4-2h5.2L16 7h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z" />
-      <circle cx="12" cy="13" r="3.5" />
-    </svg>
-  );
-}
-
-const services = [
-  {
-    title: "Wedding Planning",
-    description:
-      "From intimate ceremonies to grand celebrations, we coordinate every detail of your wedding with care, creativity, and seamless execution.",
-    Icon: WeddingIcon,
-  },
-  {
-    title: "Naming Ceremonies",
-    description:
-      "Thoughtful, joyful celebrations for your little one, designed around family traditions, comfort, beautiful décor, and lasting memories.",
-    Icon: NamingCeremonyIcon,
-  },
-  {
-    title: "Corporate Events",
-    description:
-      "Professional planning and coordinated event experiences for launches, celebrations, team gatherings, conferences, and business occasions.",
-    Icon: CorporateIcon,
-  },
-  {
-    title: "Décor & Styling",
-    description:
-      "Elegant themes, personalised stage décor, floral details, lighting, and styling that make your venue feel truly special.",
-    Icon: DecorIcon,
-  },
-  {
-    title: "Catering Coordination",
-    description:
-      "Well-organised food and catering coordination to ensure every guest enjoys a smooth, memorable dining experience.",
-    Icon: CateringIcon,
-  },
-  {
-    title: "Photography & Memories",
-    description:
-      "Capture meaningful moments with photography coordination that preserves the emotion, energy, and beauty of your celebration.",
-    Icon: PhotographyIcon,
-  },
-];
 
 export default function Sponsors() {
+  const [visibleSteps, setVisibleSteps] = useState([]);
+  const stepRefs = useRef([]);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) {
+      setVisibleSteps(steps.map((_, index) => index));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const index = Number(entry.target.dataset.stepIndex);
+
+          setVisibleSteps((current) =>
+            current.includes(index) ? current : [...current, index]
+          );
+
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -10% 0px",
+      }
+    );
+
+    const currentRefs = stepRefs.current;
+
+    currentRefs.forEach((step) => {
+      if (step) observer.observe(step);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const completedSteps = visibleSteps.length;
+  const lineProgress = Math.min(completedSteps / steps.length, 1);
+
   return (
     <section
-      id="services"
+      id="how-it-works"
       className="relative overflow-hidden bg-white py-16 dark:bg-gray-950 sm:py-24"
     >
-      <div className="absolute left-0 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-100/60 blur-3xl dark:bg-gold-500/5" />
+      <div className="absolute left-0 top-0 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-100/70 blur-3xl dark:bg-gold-500/5" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 translate-y-1/3 rounded-full bg-navy-100/60 blur-3xl dark:bg-navy-900/30" />
 
-      <div className="relative max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-semibold tracking-[0.22em] uppercase text-gold-600 dark:text-gold-400">
-            What we create
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gold-500/10 text-gold-600 dark:text-gold-300">
+            <SparkleIcon />
+          </div>
+
+          <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-gold-600 dark:text-gold-400">
+            Our approach
           </p>
 
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl dark:text-white">
-            Celebrations Planned Around You
+            From Your First Idea to Your Best Memory.
           </h2>
 
-          <p className="max-w-2xl mx-auto mt-5 text-base leading-8 text-gray-600 sm:text-lg dark:text-gray-300">
-            The Dreamday Events brings planning, design, coordination, and
-            execution together to create celebrations that feel personal,
-            effortless, and unforgettable.
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-600 dark:text-gray-300">
+            Planning a meaningful celebration should feel exciting—not
+            overwhelming. Watch your celebration journey take shape, one
+            thoughtful step at a time.
           </p>
         </div>
 
-        <div className="grid gap-5 mt-12 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ title, description, Icon }) => (
-            <article
-              key={title}
-              className="group flex flex-col rounded-2xl border border-gold-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gold-500/50"
-            >
-              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gold-100 text-gold-700 transition duration-300 group-hover:bg-navy-900 group-hover:text-gold-300 dark:bg-gold-500/10 dark:text-gold-300 dark:group-hover:bg-gold-500 dark:group-hover:text-navy-950">
-                <Icon />
-              </div>
+        <div className="relative mx-auto mt-14 max-w-5xl">
+          {/* Desktop-only curved zig-zag path. */}
+          <svg
+            className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
+            viewBox="0 0 1000 1280"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M170 130 C460 210 540 260 830 360 C560 470 440 550 170 660 C450 760 550 870 830 970 C580 1080 430 1130 170 1210"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              className="text-gold-200 dark:text-white/10"
+            />
 
-              <h3 className="mt-6 text-xl font-bold text-navy-900 dark:text-white">
-                {title}
-              </h3>
+            <path
+              d="M170 130 C460 210 540 260 830 360 C560 470 440 550 170 660 C450 760 550 870 830 970 C580 1080 430 1130 170 1210"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              pathLength="100"
+              strokeDasharray="100"
+              strokeDashoffset={100 - lineProgress * 100}
+              className="text-gold-500 transition-[stroke-dashoffset] duration-[1400ms] ease-out dark:text-gold-400"
+            />
+          </svg>
 
-              <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300">
-                {description}
-              </p>
+          {/* Mobile-only vertical connector. */}
+          <div className="absolute bottom-10 left-7 top-10 w-px bg-gold-200 dark:bg-white/10 sm:left-9 lg:hidden" />
 
-              <a
-                href="#contact"
-                className="inline-flex items-center mt-6 text-sm font-semibold text-navy-900 transition duration-300 group-hover:text-gold-600 dark:text-gold-300"
-              >
-                Plan this event
-                <span className="ml-2">
-                  <ArrowIcon />
-                </span>
-              </a>
-            </article>
-          ))}
+          <div
+            className="absolute bottom-10 left-7 top-10 w-px origin-top bg-gold-500 transition-transform duration-700 ease-out dark:bg-gold-400 sm:left-9 lg:hidden"
+            style={{
+              transform: `scaleY(${lineProgress})`,
+            }}
+          />
+
+          <div className="relative space-y-10 sm:space-y-14 lg:space-y-24">
+            {steps.map((step, index) => {
+              const isVisible = visibleSteps.includes(index);
+              const isRight = index % 2 === 1;
+
+              return (
+                <article
+                  key={step.number}
+                  ref={(element) => {
+                    stepRefs.current[index] = element;
+                  }}
+                  data-step-index={index}
+                  className={[
+                    "relative grid grid-cols-[56px_1fr] gap-5 transition-all duration-700 ease-out sm:grid-cols-[72px_1fr] sm:gap-7 lg:grid-cols-2 lg:gap-24",
+                    isVisible
+                      ? "translate-x-0 opacity-100"
+                      : isRight
+                        ? "translate-x-12 opacity-0"
+                        : "-translate-x-12 opacity-0",
+                  ].join(" ")}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                >
+                  {/* Mobile number node */}
+                  <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-sm font-bold text-gold-300 shadow-lg dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950 sm:h-[72px] sm:w-[72px] sm:text-base lg:hidden">
+                    {step.number}
+                  </div>
+
+                  {/* Desktop left slot */}
+                  <div
+                    className={[
+                      "hidden lg:flex",
+                      isRight ? "justify-end" : "justify-start",
+                    ].join(" ")}
+                  >
+                    {!isRight ? (
+                      <div className="w-full max-w-md">
+                        <WorkflowCard step={step} />
+                      </div>
+                    ) : (
+                      <div
+                        className={[
+                          "flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-base font-bold text-gold-300 shadow-xl transition duration-500 dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950",
+                          isVisible ? "scale-100" : "scale-75",
+                        ].join(" ")}
+                      >
+                        {step.number}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Desktop right slot / mobile card */}
+                  <div
+                    className={[
+                      "lg:flex",
+                      isRight ? "lg:justify-start" : "lg:justify-end",
+                    ].join(" ")}
+                  >
+                    <div className="w-full max-w-md">
+                      {isRight ? (
+                        <WorkflowCard step={step} />
+                      ) : (
+                        <div
+                          className={[
+                            "hidden h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-base font-bold text-gold-300 shadow-xl transition duration-500 dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950 lg:flex",
+                            isVisible ? "scale-100" : "scale-75",
+                          ].join(" ")}
+                        >
+                          {step.number}
+                        </div>
+                      )}
+
+                      <div className="lg:hidden">
+                        <WorkflowCard step={step} />
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-5 p-6 mt-12 border rounded-2xl border-gold-200 bg-gold-50 sm:flex-row sm:p-8 dark:border-gold-500/20 dark:bg-gold-500/5">
-          <div className="text-center sm:text-left">
+        <div className="mt-14 flex flex-col items-center justify-between gap-5 rounded-2xl border border-gold-200 bg-gold-50 p-6 text-center sm:flex-row sm:p-8 sm:text-left dark:border-gold-500/20 dark:bg-gold-500/5">
+          <div>
             <p className="text-lg font-bold text-navy-900 dark:text-white">
-              Planning something special?
+              Ready to begin your celebration journey?
             </p>
 
-            <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-              Speak with our team and start planning your celebration in
-              Bengaluru or anywhere across Karnataka.
+            <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-300">
+              Share your idea with us, and we will help turn it into an
+              experience your guests will remember.
             </p>
           </div>
 
@@ -251,7 +282,7 @@ export default function Sponsors() {
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center justify-center rounded-md bg-navy-900 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-gold-600 dark:bg-gold-500 dark:text-navy-950 dark:hover:bg-gold-400"
           >
-            Enquire Now
+            Start Planning
             <span className="ml-2">
               <ArrowIcon />
             </span>
@@ -259,5 +290,23 @@ export default function Sponsors() {
         </div>
       </div>
     </section>
+  );
+}
+
+function WorkflowCard({ step }) {
+  return (
+    <div className="rounded-2xl border border-gold-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gold-500/50 sm:p-7">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600 dark:text-gold-400">
+        Step {step.number}
+      </p>
+
+      <h3 className="mt-2 text-xl font-bold text-navy-900 dark:text-white sm:text-2xl">
+        {step.title}
+      </h3>
+
+      <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300 sm:text-base">
+        {step.description}
+      </p>
+    </div>
   );
 }
