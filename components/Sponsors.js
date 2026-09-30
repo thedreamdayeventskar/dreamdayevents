@@ -65,6 +65,37 @@ function SparkleIcon() {
   );
 }
 
+function WorkflowCard({ step }) {
+  return (
+    <div className="rounded-2xl border border-gold-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gold-500/50 sm:p-7">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600 dark:text-gold-400">
+        Step {step.number}
+      </p>
+
+      <h3 className="mt-2 text-xl font-bold text-navy-900 dark:text-white sm:text-2xl">
+        {step.title}
+      </h3>
+
+      <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300 sm:text-base">
+        {step.description}
+      </p>
+    </div>
+  );
+}
+
+function WorkflowNode({ number, isVisible }) {
+  return (
+    <div
+      className={[
+        "flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-base font-bold text-gold-300 shadow-xl transition duration-500 dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950",
+        isVisible ? "scale-100" : "scale-75",
+      ].join(" ")}
+    >
+      {number}
+    </div>
+  );
+}
+
 export default function Sponsors() {
   const [visibleSteps, setVisibleSteps] = useState([]);
   const stepRefs = useRef([]);
@@ -108,8 +139,7 @@ export default function Sponsors() {
     return () => observer.disconnect();
   }, []);
 
-  const completedSteps = visibleSteps.length;
-  const lineProgress = Math.min(completedSteps / steps.length, 1);
+  const lineProgress = Math.min(visibleSteps.length / steps.length, 1);
 
   return (
     <section
@@ -141,7 +171,7 @@ export default function Sponsors() {
         </div>
 
         <div className="relative mx-auto mt-14 max-w-5xl">
-          {/* Desktop-only curved zig-zag path. */}
+          {/* Desktop-only animated curved zig-zag line */}
           <svg
             className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
             viewBox="0 0 1000 1280"
@@ -170,7 +200,7 @@ export default function Sponsors() {
             />
           </svg>
 
-          {/* Mobile-only vertical connector. */}
+          {/* Mobile-only line */}
           <div className="absolute bottom-10 left-7 top-10 w-px bg-gold-200 dark:bg-white/10 sm:left-9 lg:hidden" />
 
           <div
@@ -193,69 +223,60 @@ export default function Sponsors() {
                   }}
                   data-step-index={index}
                   className={[
-                    "relative grid grid-cols-[56px_1fr] gap-5 transition-all duration-700 ease-out sm:grid-cols-[72px_1fr] sm:gap-7 lg:grid-cols-2 lg:gap-24",
+                    "relative transition-all duration-700 ease-out",
                     isVisible
                       ? "translate-x-0 opacity-100"
                       : isRight
-                        ? "translate-x-12 opacity-0"
-                        : "-translate-x-12 opacity-0",
+                        ? "translate-x-10 opacity-0"
+                        : "-translate-x-10 opacity-0",
                   ].join(" ")}
                   style={{
                     transitionDelay: `${index * 100}ms`,
                   }}
                 >
-                  {/* Mobile number node */}
-                  <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-sm font-bold text-gold-300 shadow-lg dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950 sm:h-[72px] sm:w-[72px] sm:text-base lg:hidden">
-                    {step.number}
+                  {/* Mobile: exactly one number node and one card */}
+                  <div className="grid grid-cols-[56px_1fr] gap-5 sm:grid-cols-[72px_1fr] sm:gap-7 lg:hidden">
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-sm font-bold text-gold-300 shadow-lg dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950 sm:h-[72px] sm:w-[72px] sm:text-base">
+                      {step.number}
+                    </div>
+
+                    <WorkflowCard step={step} />
                   </div>
 
-                  {/* Desktop left slot */}
-                  <div
-                    className={[
-                      "hidden lg:flex",
-                      isRight ? "justify-end" : "justify-start",
-                    ].join(" ")}
-                  >
-                    {!isRight ? (
-                      <div className="w-full max-w-md">
-                        <WorkflowCard step={step} />
-                      </div>
-                    ) : (
-                      <div
-                        className={[
-                          "flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-base font-bold text-gold-300 shadow-xl transition duration-500 dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950",
-                          isVisible ? "scale-100" : "scale-75",
-                        ].join(" ")}
-                      >
-                        {step.number}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Desktop right slot / mobile card */}
-                  <div
-                    className={[
-                      "lg:flex",
-                      isRight ? "lg:justify-start" : "lg:justify-end",
-                    ].join(" ")}
-                  >
-                    <div className="w-full max-w-md">
-                      {isRight ? (
-                        <WorkflowCard step={step} />
-                      ) : (
-                        <div
-                          className={[
-                            "hidden h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-navy-900 text-base font-bold text-gold-300 shadow-xl transition duration-500 dark:border-gray-950 dark:bg-gold-500 dark:text-navy-950 lg:flex",
-                            isVisible ? "scale-100" : "scale-75",
-                          ].join(" ")}
-                        >
-                          {step.number}
+                  {/* Desktop: alternating zig-zag cards and nodes */}
+                  <div className="hidden lg:grid lg:grid-cols-2 lg:gap-24">
+                    <div
+                      className={
+                        isRight ? "flex justify-end" : "flex justify-start"
+                      }
+                    >
+                      {!isRight ? (
+                        <div className="w-full max-w-md">
+                          <WorkflowCard step={step} />
                         </div>
+                      ) : (
+                        <WorkflowNode
+                          number={step.number}
+                          isVisible={isVisible}
+                        />
                       )}
+                    </div>
 
-                      <div className="lg:hidden">
-                        <WorkflowCard step={step} />
-                      </div>
+                    <div
+                      className={
+                        isRight ? "flex justify-start" : "flex justify-end"
+                      }
+                    >
+                      {isRight ? (
+                        <div className="w-full max-w-md">
+                          <WorkflowCard step={step} />
+                        </div>
+                      ) : (
+                        <WorkflowNode
+                          number={step.number}
+                          isVisible={isVisible}
+                        />
+                      )}
                     </div>
                   </div>
                 </article>
@@ -290,23 +311,5 @@ export default function Sponsors() {
         </div>
       </div>
     </section>
-  );
-}
-
-function WorkflowCard({ step }) {
-  return (
-    <div className="rounded-2xl border border-gold-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-gold-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gold-500/50 sm:p-7">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600 dark:text-gold-400">
-        Step {step.number}
-      </p>
-
-      <h3 className="mt-2 text-xl font-bold text-navy-900 dark:text-white sm:text-2xl">
-        {step.title}
-      </h3>
-
-      <p className="mt-3 text-sm leading-7 text-gray-600 dark:text-gray-300 sm:text-base">
-        {step.description}
-      </p>
-    </div>
   );
 }
