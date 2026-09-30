@@ -12,10 +12,10 @@ const founders = [
       "Jagadeesh leads The Dreamday Events with a focus on thoughtful planning, dependable coordination, and celebrations that feel personal from the very first conversation.",
   },
   {
-    name: "Co-Founder",
+    name: "Akshata Kulkarni",
     role: "Co-Founder",
     image: "/images/team/co-founder.jpg",
-    alt: "Co-Founder of The Dreamday Events",
+    alt: "Akshata Kulkarni, Co-Founder of The Dreamday Events",
     description:
       "Bringing creativity, care, and attention to detail to every celebration, our co-founder helps transform ideas into warm, memorable event experiences.",
   },

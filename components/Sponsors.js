@@ -240,7 +240,7 @@ export default function Sponsors() {
             </p>
 
             <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-              Speak with Jagadeesh and start planning your celebration in
+              Speak with our team and start planning your celebration in
               Bengaluru or anywhere across Karnataka.
             </p>
           </div>
